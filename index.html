@@ -2,17 +2,33 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title>Radar</title>
+  <title>Radar Meteocat</title>
+  <style>
+    body {
+      background-color: #eef;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2em;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+    }
+  </style>
 </head>
 <body>
-  <h1>Radar</h1>
-<iframe src="https://static-m.meteo.cat/ginys/mapaRadar?language=ca&color=2c3e50&target=_blank" title="Última imatge de radar" frameborder="0" style="border:0" scrolling="no" width="700" height="500"></iframe>
+  <h1>Radar de Pluja - Meteocat</h1>
+  <p>Aquesta és la darrera seqüència del radar:</p>
+    <img src="https://static-m.meteo.cat/wordpressweb/wp-content/uploads/2020/03/radar_loop.gif" alt="Radar de pluja" id="radar">
+  <p><a href="https://meteocat.gencat.cat/wordpress/observacions/radar/" target="_blank">Veure radar en directe</a></p>
   <script>
-    // Actualitza l'iframe cada 30 segons
+    // Forçar que el GIF es recarregui cada 5 minuts (300.000 ms)
     setInterval(() => {
-      const iframe = document.getElementById('elMeuIframe');
-      iframe.src = iframe.src; // això fa que es recarregui
-    }, 30000); // 30.000 ms = 30 segons
+      const radar = document.getElementById('radar');
+      const baseUrl = "https://static-m.meteo.cat/wordpressweb/wp-content/uploads/2020/03/radar_loop.gif";
+      radar.src = baseUrl + "?t=" + new Date().getTime(); // afegeix "cache buster"
+    }, 300000);
   </script>
 </body>
 </html>
