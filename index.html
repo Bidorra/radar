@@ -1,6 +1,27 @@
- </head>
- <body>
-   <h1>Radar</h1>
- <iframe src="https://static-m.meteo.cat/ginys/mapaRadar?language=ca&color=2c3e50&target=_blank" title="Última imatge de radar" frameborder="0" style="border:0" scrolling="no" width="700" height="500"></iframe
- </body>
- </html>
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Radar Meteorològic</title>
+  <script>
+    function reloadIframe() {
+      const iframe = document.getElementById('radarFrame');
+      iframe.src = iframe.src;
+    }
+
+    // Recarrega l'iframe cada 5 minuts (300000 mil·lisegons)
+    setInterval(reloadIframe, 300000);
+  </script>
+</head>
+<body>
+  <iframe id="radarFrame"
+          src="https://static-m.meteo.cat/ginys/mapaRadar?language=ca&color=2c3e50&target=_blank"
+          title="Última imatge de radar"
+          frameborder="0"
+          style="border:0"
+          scrolling="no"
+          width="700"
+          height="500">
+  </iframe>
+</body>
+</html>
