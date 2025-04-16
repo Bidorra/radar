@@ -2,17 +2,10 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title>Pàgina amb iframe actualitzat</title>
+  <title>Radar</title>
 </head>
 <body>
-  <h1>Contingut en un iframe</h1>
+  <h1>Radar</h1>
   <iframe id="https://static-m.meteo.cat/ginys/mapaRadar?" width="100%" height="500" frameborder="0"></iframe>
-  <script>
-    // Actualitza l'iframe cada 30 segons
-    setInterval(() => {
-      const iframe = document.getElementById('elMeuIframe');
-      iframe.src = iframe.src; // això fa que es recarregui
-    }, 30000); // 30.000 ms = 30 segons
-  </script>
 </body>
 </html>
