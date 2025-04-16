@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Pàgina amb iframe actualitzat</title>
+</head>
+<body>
+  <h1>Contingut en un iframe</h1>
+ <iframe src="https://static-m.meteo.cat/ginys/mapaRadar?language=ca&color=2c3e50&target=_blank" title="Última imatge de radar" frameborder="0" style="border:0" scrolling="no" width="396" height="412"></iframe>
+
+  <script>
+    // Actualitza l'iframe cada 30 segons
+    setInterval(() => {
+      const iframe = document.getElementById('elMeuIframe');
+      iframe.src = iframe.src; // això fa que es recarregui
+    }, 30000); // 30.000 ms = 30 segons
+  </script>
+</body>
+</html>
