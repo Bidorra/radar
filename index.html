@@ -2,26 +2,25 @@
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
-  <title>Radar Meteorològic</title>
-  <script>
-    function reloadIframe() {
-      const iframe = document.getElementById('radarFrame');
-      iframe.src = iframe.src;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa del Temps</title>
+  <style>
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
     }
-
-    // Recarrega l'iframe cada 5 minuts (300000 mil·lisegons)
-    setInterval(reloadIframe, 300000);
-  </script>
+  </style>
 </head>
 <body>
-  <iframe id="radarFrame"
-          src="https://static-m.meteo.cat/ginys/mapaRadar?language=ca&color=2c3e50&target=_blank"
-          title="Última imatge de radar"
-          frameborder="0"
-          style="border:0"
-          scrolling="no"
-          width="700"
-          height="500">
-  </iframe>
+  <h1>Radar Meteocat</h1>
+  <iframe id="radar" src="https://static-m.meteo.cat/ginys/mapaRadar?"></iframe>
+
+  <script>
+    setInterval(() => {
+      const iframe = document.getElementById('radar');
+      iframe.src = iframe.src.split('?')[0] + '?' + new Date().getTime();
+    }, 5 * 60 * 1000); // cada 5 minuts
+  </script>
 </body>
 </html>
