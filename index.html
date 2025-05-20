@@ -14,13 +14,6 @@
 </head>
 <body>
   <h1>Radar Meteocat</h1>
-  <iframe id="radar" src="https://static-m.meteo.cat/ginys/mapaRadar?"></iframe>
-
-  <script>
-    setInterval(() => {
-      const iframe = document.getElementById('radar');
-      iframe.src = iframe.src.split('?')[0] + '?' + new Date().getTime();
-    }, 5 * 60 * 1000); // cada 5 minuts
-  </script>
+ <iframe width="650" height="450" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=°C&metricWind=km/h&zoom=8&overlay=radar&product=radar&level=surface&lat=41.726&lon=1.214" frameborder="0"></iframe>
 </body>
 </html>
